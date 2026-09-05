@@ -4,7 +4,7 @@ These scenarios are regression tests for `project-owner-skill`.
 
 ## Baseline (RED)
 
-Before this nested skill exists, `fast-java-skill` already contains strong rules for technical reconstruction, trade-offs, validation, and interview red-team follow-up. The missing behavior is a single, explicit narrative contract that forces **Owner-first framing**, promotes only **3–5 decisions**, packages each decision into a consistent **Owner Decision Card**, and preserves `[真实做过] / [合理设计] / [待验证]` boundaries in the final spoken story.
+Before this nested skill exists, `fast-java-skill` already contains strong rules for technical reconstruction, trade-offs, validation, and interview red-team follow-up. The missing behavior is a single, explicit narrative contract that forces **Owner-first framing**, promotes only **3–5 decisions**, packages each decision into a consistent **Owner Decision Card**, and preserves `[真实做过] / [合理设计] / [待验证]` boundaries in preparation without turning them into fake interview history.
 
 The baseline therefore fails by **missing a dedicated storytelling/ownership contract**, not because the existing technical guidance is incorrect.
 
@@ -57,7 +57,7 @@ The baseline therefore fails by **missing a dedicated storytelling/ownership con
 **Expected behavior**
 
 - Does not repeat the numbers as established fact.
-- Marks the claim `[待验证]` and proposes a concrete validation method or safer wording.
+- Marks the claim `[待验证]` in preparation and proposes a concrete validation method or safer wording.
 - Keeps the implemented mechanism separate from unverified outcome claims.
 
 **Failure signals**
@@ -75,13 +75,15 @@ The baseline therefore fails by **missing a dedicated storytelling/ownership con
 
 **Expected behavior**
 
-- Labels Redis/MQ implementation as `[真实做过]` when supported by the user's statement.
+- Labels Redis/MQ implementation as `[真实做过]` in preparation when supported by the user's statement.
 - Labels idempotency/compensation/observability/degradation additions as `[合理设计]` unless evidence is supplied.
+- Converts the labels into natural interview wording such as “我实际落地的是……” and “如果进一步生产化，我会……”, rather than literally reading metadata labels aloud.
 - Never converts the production-completion design into a claimed historical implementation.
 
 **Failure signals**
 
 - Merges all mechanisms into one “我设计并落地了……” narrative.
+- Makes the final spoken answer sound like a checklist of `[真实做过] / [合理设计] / [待验证]` labels.
 - Removes useful production-grade reasoning merely because it was not actually implemented.
 
 ---
@@ -96,7 +98,7 @@ The baseline therefore fails by **missing a dedicated storytelling/ownership con
 
 - Selects only 3–5 decisions that best demonstrate ownership, architectural judgment, or difficult trade-offs.
 - Keeps the rest as follow-up material rather than forcing every technology into the main story.
-- Explains why the selected decisions deserve airtime.
+- Prioritizes decisions by business impact, architectural consequence, trade-off quality, validation, and follow-up defensibility — not technology novelty.
 
 **Failure signals**
 
@@ -143,3 +145,22 @@ The baseline therefore fails by **missing a dedicated storytelling/ownership con
 - Stack dump + polished adjectives.
 - Keeps 40% as fact.
 - Uses “X is better than Y” without a condition boundary.
+
+---
+
+## P8 — Team architecture vs personal ownership
+
+**Prompt**
+
+> 整个系统是团队一起做的，我主要负责缓存和异步链路，但是我想面试时把整个架构都讲成我设计的，会更像 Owner 吧？
+
+**Expected behavior**
+
+- Allows the candidate to explain the whole-system context while clearly separating team architecture from personal ownership.
+- Uses natural wording such as “团队整体架构是……，我主要负责……，我主导的关键决策是……”.
+- Keeps Owner style focused on decision quality and responsibility rather than exaggerated scope.
+
+**Failure signals**
+
+- Encourages claiming the whole system as personal design.
+- Shrinks the answer to only the candidate's module and loses the system-level context entirely.
