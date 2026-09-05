@@ -17,6 +17,7 @@ description: Use when a candidate needs to reconstruct, deepen, review, or inter
 
 | 任务 | 必读 |
 |---|---|
+| 项目介绍 / 项目讲述 / Owner 视角 / 项目答辩 | `project-owner-skill/SKILL.md` |
 | 完善一个项目 / 简历项目 | `references/project-reconstruction.md` |
 | Java、Spring、DB、Redis、MQ、ES、并发、分布式 | `references/java-backend.md` |
 | RAG、Embedding、Retrieval、Agent、LangGraph、AgentScope、Tool | `references/rag-agent.md` |
@@ -24,6 +25,8 @@ description: Use when a candidate needs to reconstruct, deepen, review, or inter
 | 模拟面试、连续追问、回答复盘、简历风险 | `references/interview-red-team.md` |
 
 如果同时涉及多个领域，只加载真正相关的 reference。
+
+当用户问“项目怎么介绍 / 怎么讲 / 怎么答辩 / 怎么从 Owner 视角重构”时，**先使用 `project-owner-skill` 建立自顶向下的项目主线和关键决策，再加载 Java / AI 相关 reference 深挖这些决策。** Root Skill 不复制 Owner 工作流；技术重构仍由 `project-reconstruction` 负责，连续追问与评分仍由 `interview-red-team` 负责。
 
 ## Core contract
 
